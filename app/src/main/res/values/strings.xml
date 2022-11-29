@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Photo app 160</string>
+
+    <string name="hello_world">Hello world!</string>
+
+    <string name="enter_name">Введите имя</string>
+    <string name="enter_lastName">Введите фаилию</string>
+    <string name="enter_login">Введите логин</string>
+    <string name="enter_password">Введите пеароль</string>
+    <string name="register">Зарегестрироваться</string>
+    <string name="enter_password_again">Повторите пароль</string>
+
+    <string name="not_equal_passwords">Пароли не совпадают</string>
+    <string name="not_correct_passwords">Пароли неправильный</string>
+    <string name="not_correct_login">Логин занят</string>
+
+    <string name="login">Войти</string>
+
+</resources>
