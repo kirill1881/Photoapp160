@@ -40,5 +40,41 @@
         app:layout_constraintTop_toBottomOf="@+id/circleImageView"
         app:layout_constraintVertical_bias="0.134" />
 
+    <Button
+        android:id="@+id/editProfile"
+        android:layout_width="298dp"
+        android:text="@string/edit_profile"
+        android:layout_height="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/disc"
+        app:layout_constraintVertical_bias="0.067" />
+
+    <Button
+        android:id="@+id/myPhotos"
+        android:layout_width="298dp"
+        android:layout_height="45dp"
+        android:text="@string/my_photos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/disc"
+        app:layout_constraintVertical_bias="0.206" />
+
+    <Button
+        android:id="@+id/othersPhotos"
+        android:layout_width="298dp"
+        android:layout_height="45dp"
+        android:text="@string/others_photos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/disc"
+        app:layout_constraintVertical_bias="0.347" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

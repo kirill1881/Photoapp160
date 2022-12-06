@@ -3,6 +3,7 @@ package com.example.photoapp160;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -52,10 +53,13 @@ public class RegistrationActivity extends AppCompatActivity {
                         if (registrationThread.isIfSuccses()){
                             editor.putString("name", userBody.getName());
                             editor.putString("lastName", userBody.getLastName());
+                            editor.putString("disc", userBody.getDisc());
                             editor.putString("login", userBody.getLogin());
                             editor.apply();
 
-                            //todo успешая регистрация
+                            Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
                         }else {
                             textView.setText(R.string.not_correct_login);
                         }
