@@ -14,6 +14,11 @@ public class UserBody {
         this.password = password;
     }
 
+    public UserBody(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
+
     public UserBody(String name, String lastName, String login, String password, String disc) {
         this.name = name;
         this.lastName = lastName;

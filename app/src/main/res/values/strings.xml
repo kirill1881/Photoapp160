@@ -15,5 +15,6 @@
     <string name="not_correct_login">Логин занят</string>
 
     <string name="login">Войти</string>
+    <string name="not_correct_loginization">Некоретный данные</string>
 
 </resources>
