@@ -8,6 +8,17 @@ public class UserBody {
     private String login;
     private String password;
     private String disc;
+    private String mainPhoto;
+
+
+
+    public UserBody(String name, String lastName, String login, String disc, String mainPhoto) {
+        this.name = name;
+        this.lastName = lastName;
+        this.login = login;
+        this.disc = disc;
+        this.mainPhoto = mainPhoto;
+    }
 
     public UserBody(String name, String lastName, String login, String password) {
         this.name = name;
@@ -21,14 +32,13 @@ public class UserBody {
         this.password = password;
     }
 
-    public UserBody(String name, String lastName, String login, String password, String disc) {
-        this.name = name;
-        this.lastName = lastName;
-        this.login = login;
-        this.password = password;
-        this.disc = disc;
+    public String getMainPhoto() {
+        return mainPhoto;
     }
 
+    public void setMainPhoto(String mainPhoto) {
+        this.mainPhoto = mainPhoto;
+    }
     public String getName() {
         return name;
     }

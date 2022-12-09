@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.photoapp160.Threads.EditProfileThread;
+import com.example.photoapp160.helpers.UserBody;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -34,7 +36,7 @@ public class EditProfile extends AppCompatActivity {
     private ImageView imageView;
     private EditText name, lastName, disc;
     private Button save;
-    private String url;
+    private String url = "";
 
     private FirebaseStorage firebaseStorage;
     private StorageReference storageReference;
@@ -62,6 +64,8 @@ public class EditProfile extends AppCompatActivity {
             downloadBytes(sharedPreferences.getAll().get("mainPhoto").toString(), imageView);
         }
 
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +73,33 @@ public class EditProfile extends AppCompatActivity {
                 intent.setType("image/**");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(intent, "Select Picture"), CODE);
+            }
+        });
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserBody userBody;
+                if (!url.equals("")) {
+                    userBody = new UserBody(name.getText().toString(), lastName.getText().toString(),
+                            sharedPreferences.getAll().get("login").toString(), disc.getText().toString(), url);
+                    editor.putString("mainPhoto",url);
+                }else {
+                    userBody = new UserBody(name.getText().toString(), lastName.getText().toString(),
+                            sharedPreferences.getAll().get("login").toString(), disc.getText().toString(),
+                            sharedPreferences.getAll().get("mainPhoto").toString());
+                }
+                editor.putString("name", name.getText().toString());
+                editor.putString("lastName", lastName.getText().toString());
+                editor.putString("disc",disc.getText().toString());
+
+                editor.apply();
+
+                EditProfileThread editProfileThread = new EditProfileThread(userBody);
+                editProfileThread.start();
+
+                Intent intent = new Intent(EditProfile.this, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
