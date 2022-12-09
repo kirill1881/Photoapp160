@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.storage.FirebaseStorage;
@@ -32,10 +34,12 @@ public class EditProfile extends AppCompatActivity {
     private ImageView imageView;
     private EditText name, lastName, disc;
     private Button save;
-
+    private String url;
 
     private FirebaseStorage firebaseStorage;
     private StorageReference storageReference;
+
+    private static final int CODE = 101;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +68,7 @@ public class EditProfile extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setType("image/**");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent, "Select Picture"), 101);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), CODE);
             }
         });
     }
@@ -81,13 +85,18 @@ public class EditProfile extends AppCompatActivity {
                 Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                 circleImageView.setImageBitmap(bitmap);
             }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
         });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==101 && data!=null){
+        if (requestCode==CODE && data!=null){
             Uri selectImageUri = data.getData();
             if (selectImageUri!=null){
                 imageView.setImageURI(selectImageUri);
@@ -104,7 +113,12 @@ public class EditProfile extends AppCompatActivity {
                 Task<Uri> task = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
                     public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                        return null;
+                        return storageReference1.getDownloadUrl();
+                    }
+                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+                        url = task.getResult().toString().substring(76,89);
                     }
                 });
             }

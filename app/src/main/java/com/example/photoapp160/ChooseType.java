@@ -22,7 +22,8 @@ public class ChooseType extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(ChooseType.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
 

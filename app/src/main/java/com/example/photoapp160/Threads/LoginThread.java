@@ -53,7 +53,6 @@ public class LoginThread extends Thread{
                             jsonObject.get("disc").toString());
                 }
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -6,7 +6,7 @@
     <string name="enter_name">Введите имя</string>
     <string name="enter_lastName">Введите фаилию</string>
     <string name="enter_login">Введите логин</string>
-    <string name="enter_password">Введите пеароль</string>
+    <string name="enter_password">Введите пароль</string>
     <string name="register">Зарегестрироваться</string>
     <string name="enter_password_again">Повторите пароль</string>
 

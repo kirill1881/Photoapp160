@@ -1,5 +1,7 @@
 package com.example.photoapp160.helpers;
 
+import java.util.Objects;
+
 public class UserBody {
     private String name;
     private String lastName;
@@ -65,5 +67,18 @@ public class UserBody {
 
     public void setDisc(String disc) {
         this.disc = disc;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserBody userBody = (UserBody) o;
+        return Objects.equals(name, userBody.name) && Objects.equals(lastName, userBody.lastName) && Objects.equals(login, userBody.login) && Objects.equals(password, userBody.password) && Objects.equals(disc, userBody.disc);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, lastName, login, password, disc);
     }
 }
