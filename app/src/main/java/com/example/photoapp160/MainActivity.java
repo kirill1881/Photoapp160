@@ -63,6 +63,14 @@ public class MainActivity extends AppCompatActivity {
             if (sharedPreferences.getAll().get("mainPhoto") != null) {
                 downloadBytes(sharedPreferences.getAll().get("mainPhoto").toString(), circleImageView);
             }
+
+            editProfile.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, EditProfile.class);
+                    startActivity(intent);
+                }
+            });
         }
 
     }

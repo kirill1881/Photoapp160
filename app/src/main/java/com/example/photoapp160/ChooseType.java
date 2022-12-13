@@ -24,6 +24,7 @@ public class ChooseType extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ChooseType.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -32,6 +33,7 @@ public class ChooseType extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ChooseType.this, RegistrationActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

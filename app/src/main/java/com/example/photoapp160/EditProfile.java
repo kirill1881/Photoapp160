@@ -56,7 +56,9 @@ public class EditProfile extends AppCompatActivity {
         save = findViewById(R.id.save);
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(EditProfile.this);
+/*
         disc.setText(sharedPreferences.getAll().get("disc").toString());
+*/
         name.setText(sharedPreferences.getAll().get("name").toString());
         lastName.setText(sharedPreferences.getAll().get("lastName").toString());
 
@@ -86,7 +88,7 @@ public class EditProfile extends AppCompatActivity {
                 }else {
                     userBody = new UserBody(name.getText().toString(), lastName.getText().toString(),
                             sharedPreferences.getAll().get("login").toString(), disc.getText().toString(),
-                            sharedPreferences.getAll().get("mainPhoto").toString());
+                            "1");
                 }
                 editor.putString("name", name.getText().toString());
                 editor.putString("lastName", lastName.getText().toString());
@@ -96,6 +98,8 @@ public class EditProfile extends AppCompatActivity {
 
                 EditProfileThread editProfileThread = new EditProfileThread(userBody);
                 editProfileThread.start();
+
+                while (editProfileThread.isAlive());
 
                 Intent intent = new Intent(EditProfile.this, MainActivity.class);
                 startActivity(intent);
