@@ -4,11 +4,7 @@ import com.example.photoapp160.EditProfile;
 import com.example.photoapp160.helpers.Constants;
 import com.example.photoapp160.helpers.UserBody;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.client.methods.RequestBuilder;
-import org.apache.http.impl.client.HttpClients;
+
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -25,7 +21,7 @@ public class EditProfileThread extends Thread{
 
     @Override
     public void run(){
-        HttpUriRequest httpUriRequest =
+        /*HttpUriRequest httpUriRequest =
                 RequestBuilder.post(Constants.loginUrl)
                         .addParameter("name", userBody.getName())
                         .addParameter("lastName", userBody.getLastName())
@@ -35,6 +31,7 @@ public class EditProfileThread extends Thread{
                         .setCharset(StandardCharsets.UTF_8)
                         .build();
 
-        HttpClient httpClient = HttpClients.createDefault();
+
+        HttpClient httpClient = HttpClients.createDefault();*/
     }
 }

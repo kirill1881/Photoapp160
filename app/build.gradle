@@ -51,8 +51,13 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:20.1.0'
 
     implementation 'net.sourceforge.htmlunit:htmlunit-android:2.66.0'
-    implementation 'org.apache.httpcomponents:httpcore:4.4.1'
-    implementation 'org.apache.httpcomponents:httpclient:4.4'
+
+    // define a BOM and its version
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.10.0"))
+
+    // define any required OkHttp artifacts without version
+    implementation("com.squareup.okhttp3:okhttp")
+    implementation("com.squareup.okhttp3:logging-interceptor")
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 

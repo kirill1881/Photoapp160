@@ -12,12 +12,12 @@ public class UserBody {
 
 
 
-    public UserBody(String name, String lastName, String login, String disc, String mainPhoto) {
+    public UserBody(String name, String lastName, String login, String password, String disc) {
         this.name = name;
         this.lastName = lastName;
         this.login = login;
+        this.password = password;
         this.disc = disc;
-        this.mainPhoto = mainPhoto;
     }
 
     public UserBody(String name, String lastName, String login, String password) {

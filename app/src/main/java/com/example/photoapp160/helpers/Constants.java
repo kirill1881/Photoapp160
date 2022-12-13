@@ -1,7 +1,7 @@
 package com.example.photoapp160.helpers;
 
 public class Constants {
-    public final static String registerUrl = "";
-    public final static String loginUrl = "";
-    public final static String editUrl = "";
+    public final static String registerUrl = "https://tuxxx.ddns.net/user/register";
+    public final static String loginUrl = "https://tuxxx.ddns.net/user/login";
+    public final static String editUrl = "http://tuxxx.ddns.net/user/change";
 }

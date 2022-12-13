@@ -30,6 +30,7 @@ public class RegistrationActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         passwordAgain = findViewById(R.id.password_again);
         login = findViewById(R.id.login);
+        textView = findViewById(R.id.textView);
 
         SharedPreferences sharedPreferences =
                 PreferenceManager.getDefaultSharedPreferences(RegistrationActivity.this);
@@ -50,7 +51,7 @@ public class RegistrationActivity extends AppCompatActivity {
                         RegistrationThread registrationThread = new RegistrationThread(userBody);
                         registrationThread.start();
                         while (registrationThread.isAlive());
-                        if (registrationThread.isIfSuccses()){
+                        if (!registrationThread.isIfSuccses()){
                             editor.putString("name", userBody.getName());
                             editor.putString("lastName", userBody.getLastName());
                             editor.putString("disc", userBody.getDisc());
@@ -64,7 +65,7 @@ public class RegistrationActivity extends AppCompatActivity {
                             textView.setText(R.string.not_correct_login);
                         }
                     }else {
-                        textView.setText(R.string.not_correct_passwords);
+                        textView.setText("Неверный пароль");
                     }
                 }else {
                     textView.setText(R.string.not_equal_passwords);

@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.Objects;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,22 +44,25 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, ChooseType.class);
             startActivity(intent);
             finish();
-        }
+        }else {
 
-        name = findViewById(R.id.name);
-        disc = findViewById(R.id.disc);
+            name = findViewById(R.id.name);
+            disc = findViewById(R.id.disc);
 
-        editProfile = findViewById(R.id.editProfile);
-        myPhotos = findViewById(R.id.myPhotos);
-        othersPhotos = findViewById(R.id.othersPhotos);
+            editProfile = findViewById(R.id.editProfile);
+            myPhotos = findViewById(R.id.myPhotos);
+            othersPhotos = findViewById(R.id.othersPhotos);
 
-        circleImageView = findViewById(R.id.circleImageView);
+            circleImageView = findViewById(R.id.circleImageView);
 
-        name.setText(sharedPreferences.getAll().get("name")+" "+sharedPreferences.getAll().get("lastName"));
-        disc.setText(sharedPreferences.getAll().get("disc").toString());
+            name.setText(sharedPreferences.getAll().get("name") + " " + sharedPreferences.getAll().get("lastName"));
+/*
+            disc.setText(sharedPreferences.getAll().get("disc").toString());
+*/
 
-        if (sharedPreferences.getAll().get("mainPhoto")!=null){
-            downloadBytes(sharedPreferences.getAll().get("mainPhoto").toString(), circleImageView);
+            if (sharedPreferences.getAll().get("mainPhoto") != null) {
+                downloadBytes(sharedPreferences.getAll().get("mainPhoto").toString(), circleImageView);
+            }
         }
 
     }
