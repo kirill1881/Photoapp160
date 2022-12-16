@@ -5,4 +5,5 @@ public class Constants {
     public final static String loginUrl = "https://tuxxx.ddns.net/user/login";
     public final static String editUrl = "https://tuxxx.ddns.net/user/change";
     public final static String photosUrl = "https://tuxxx.ddns.net/photos/feed";
+    public final static String photosUser = "https://tuxxx.ddns.net/photos/forUser";
 }

@@ -71,6 +71,17 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+
+            myPhotos.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, MyPhotos.class);
+                    startActivity(intent);
+                }
+            });
+
+
+
         }
 
     }
