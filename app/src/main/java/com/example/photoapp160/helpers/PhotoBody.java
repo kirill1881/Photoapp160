@@ -12,6 +12,11 @@ public class PhotoBody {
         this.name = name;
     }
 
+    public PhotoBody(String url, String name) {
+        this.url = url;
+        this.name = name;
+    }
+
     public String getDisc() {
         return disc;
     }
